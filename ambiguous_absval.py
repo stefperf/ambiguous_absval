@@ -43,8 +43,13 @@ for interpr in yield_interpretations(AMB_EXP):
     except:
         print('annot evaluate "%s"' % interpr)
 
+# count interpretations and results
+nr_results = len(results)
+nr_interpretations = sum([len(interprs) for interprs in results.values()])
+
 # display all possible results and the interpretations leading to them, in order
-print('The expression %s can have %d different values:' % (AMB_EXP, len(results)))
+print('The expression %s can have %d different interpretations and %d different values:'
+      % (AMB_EXP, nr_interpretations, nr_results))
 for i, result in enumerate(sorted(results.keys()), 1):
     print("\n#%d:" % i)
     for j, interpr in enumerate(sorted(results[result])):
